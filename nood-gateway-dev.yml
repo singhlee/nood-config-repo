@@ -1,0 +1,33 @@
+info:
+  name: nood-gateway
+  author: singh
+  description: 网关服务
+server:
+  port: 8763
+  tomcat:
+    uri-encoding: UTF-8
+
+logging:
+  path: logs
+  level:
+    root: INFO
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    ip-address: ${spring.cloud.client.ip-address}:${server.port}
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone : http://${spring.security.user.name}:${spring.security.user.password}@localhost:8761/eureka/
+
+#网关信息
+zuul:
+  add-proxy-headers: true  #X-Forwarder-Host请求头默认添加到转发请求中
+  routes:
+    nood-auth:
+      sensitiveHeaders: "*"  #敏感headers也支持全局设置(必须这样设置)
+      path: /nood-auth/**
+      serviceId: nood-auth
+  ignored-services:  "*"
