@@ -27,7 +27,7 @@ spring:
     url: jdbc:mysql://148.70.23.139:3306/test?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true&useSSL=false
     username: mysql
     password: 67b81d29d3
-    driver-class-name: com.mysql.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
   #spring.datasource.type
   # JPA配置
   jpa:
