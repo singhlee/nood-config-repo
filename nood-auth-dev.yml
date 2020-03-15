@@ -69,4 +69,4 @@ jwt:
     expiration: 100
   tokenHead: Bearer
   validTime: 1
-  ignored: /doc.html,/document.html,/actuator/health,/login,logout
+  ignored: /doc.html,/document.html,/actuator/health
